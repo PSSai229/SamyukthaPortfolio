@@ -1,0 +1,248 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Samyuktha Pammi | Student Portfolio</title>
+<meta name="description" content="Student portfolio: projects, research, experience and awards.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:wght@500;700;800&family=Source+Serif+4:wght@400;600&display=swap" rel="stylesheet">
+<style>
+:root{
+  --paper:#eef3f6; --card:#ffffff; --ink:#10202e; --muted:#51636f;
+  --line:#c9d6de; --accent:#1d4ed8; --accent-ink:#ffffff; --grid:rgba(29,78,216,.08);
+  --head:"Bricolage Grotesque","Segoe UI",Arial,sans-serif;
+  --body:"Source Serif 4",Georgia,serif;
+}
+@media (prefers-color-scheme:dark){
+  :root:not([data-theme="light"]){--paper:#0e1a24;--card:#152634;--ink:#e8f0f5;--muted:#9bb0bd;--line:#27414f;--accent:#7aa2ff;--accent-ink:#0e1a24;--grid:rgba(122,162,255,.08)}
+}
+:root[data-theme="dark"]{--paper:#0e1a24;--card:#152634;--ink:#e8f0f5;--muted:#9bb0bd;--line:#27414f;--accent:#7aa2ff;--accent-ink:#0e1a24;--grid:rgba(122,162,255,.08)}
+*{box-sizing:border-box}
+html{scroll-behavior:smooth;scroll-padding-top:72px}
+body{margin:0;background:var(--paper);color:var(--ink);font:1.08rem/1.65 var(--body)}
+h1,h2,h3{font-family:var(--head);line-height:1.1;margin:0 0 .5em}
+a{color:var(--accent)}
+:focus-visible{outline:3px solid var(--accent);outline-offset:3px}
+.wrap{max-width:1040px;margin:0 auto;padding:0 22px}
+.skip{position:absolute;left:-999px}.skip:focus{left:10px;top:10px;background:var(--card);padding:8px;z-index:9}
+nav{position:sticky;top:0;z-index:5;background:var(--paper);border-bottom:1px solid var(--line)}
+nav .wrap{display:flex;gap:18px;align-items:center;padding-top:12px;padding-bottom:12px;overflow-x:auto}
+nav b{font-family:var(--head);font-size:1.2rem;margin-right:auto;white-space:nowrap}
+nav a{font-family:var(--head);font-weight:500;font-size:.95rem;color:var(--ink);text-decoration:none;white-space:nowrap}
+nav a:hover{color:var(--accent)}
+nav button{font:inherit;font-family:var(--head);background:none;border:1px solid var(--line);color:var(--ink);border-radius:6px;padding:4px 10px;cursor:pointer}
+.hero{background-image:linear-gradient(var(--grid) 1px,transparent 1px),linear-gradient(90deg,var(--grid) 1px,transparent 1px);background-size:28px 28px;border-bottom:1px solid var(--line);padding:84px 0 70px}
+.hero h1{font-size:clamp(2.8rem,8vw,5.6rem);font-weight:800;letter-spacing:-.03em;margin-bottom:.15em}
+.dim{display:flex;align-items:center;gap:10px;color:var(--muted);font-family:var(--head);font-size:.95rem;max-width:640px}
+.dim::before,.dim::after{content:"";height:1px;background:var(--muted);flex:1}
+.dim span{white-space:nowrap}
+.hero p.lead{max-width:600px;margin:22px 0 28px;font-size:1.2rem}
+.btn{display:inline-block;font-family:var(--head);font-weight:700;padding:11px 20px;border-radius:8px;text-decoration:none;margin:0 10px 10px 0;border:2px solid var(--accent)}
+.btn.main{background:var(--accent);color:var(--accent-ink)}
+.btn.alt{color:var(--accent)}
+section{padding:68px 0;border-bottom:1px solid var(--line)}
+h2{font-size:clamp(1.8rem,4vw,2.5rem);font-weight:700;letter-spacing:-.02em}
+.sub{color:var(--muted);max-width:640px;margin-top:-.2em}
+.two{display:grid;grid-template-columns:2fr 1fr;gap:40px}
+.focus{background:var(--card);border:1px solid var(--line);border-radius:10px;padding:20px;align-self:start}
+.focus h3{font-size:1.1rem}
+.tags{display:flex;flex-wrap:wrap;gap:8px;padding:0;margin:0;list-style:none}
+.tags li{font-family:var(--head);font-size:.88rem;border:1px solid var(--line);border-radius:99px;padding:3px 12px;background:var(--card)}
+.proj{background:var(--card);border:1px solid var(--line);border-radius:12px;padding:28px}
+.stats{display:flex;gap:30px;flex-wrap:wrap;margin:18px 0}
+.stats div{font-family:var(--head);color:var(--muted);font-size:.9rem}
+.stats strong{display:block;font-size:2rem;color:var(--ink)}
+.shots{display:grid;grid-template-columns:repeat(auto-fit,minmax(260px,1fr));gap:16px;margin-top:20px}
+.shots figure{margin:0}
+.shots img,.ph{width:100%;aspect-ratio:16/10;object-fit:cover;border:1px solid var(--line);border-radius:8px;background:var(--paper)}
+.ph{display:grid;place-items:center;color:var(--muted);font-family:var(--head);font-size:.9rem}
+.shots figcaption{font-size:.88rem;color:var(--muted);margin-top:6px}
+.journey{counter-reset:s;list-style:none;padding:0;margin:26px 0 0;border-left:2px solid var(--accent)}
+.journey li{counter-increment:s;padding:0 0 16px 22px;position:relative}
+.journey li::before{content:counter(s);position:absolute;left:-13px;top:0;width:24px;height:24px;border-radius:50%;background:var(--accent);color:var(--accent-ink);font:700 .8rem/24px var(--head);text-align:center}
+.grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(290px,1fr));gap:18px}
+.item{background:var(--card);border:1px solid var(--line);border-radius:10px;padding:20px}
+.item small{font-family:var(--head);color:var(--accent);font-weight:700}
+.item h3{font-size:1.15rem;margin:.2em 0}
+.item .meta{color:var(--muted);font-size:.92rem;margin:0 0 .5em}
+.item p{margin:0}
+.honor{display:flex;gap:16px;padding:14px 0;border-top:1px solid var(--line)}
+.honor:last-child{border-bottom:1px solid var(--line)}
+.honor .yr{font-family:var(--head);font-weight:700;color:var(--muted);min-width:48px}
+.honor b{font-family:var(--head)}
+details{margin-top:18px}summary{cursor:pointer;font-family:var(--head);font-weight:700;color:var(--accent)}
+details ul{padding-left:20px}
+.skills h3{font-size:1.05rem;margin-top:1em}
+.contact a.row{display:flex;justify-content:space-between;gap:12px;padding:14px 0;border-top:1px solid var(--line);text-decoration:none;color:var(--ink);font-family:var(--head)}
+.contact a.row:last-of-type{border-bottom:1px solid var(--line)}
+.contact a.row span{color:var(--muted)}
+.contact a.row:hover b{color:var(--accent)}
+footer{padding:28px 0;color:var(--muted);font-size:.92rem;text-align:center}
+@media(max-width:760px){.two{grid-template-columns:1fr}.hero{padding:56px 0 48px}section{padding:48px 0}}
+@media(prefers-reduced-motion:reduce){html{scroll-behavior:auto}}
+</style>
+</head>
+<body>
+<a class="skip" href="#main">Skip to content</a>
+<nav><div class="wrap">
+  <b id="initials">YN</b>
+  <a href="#about">About</a><a href="#project">Project</a><a href="#research">Research</a>
+  <a href="#experience">Experience</a><a href="#awards">Awards</a><a href="#contact">Contact</a>
+  <button id="theme" type="button" aria-label="Toggle dark mode">Theme</button>
+</div></nav>
+
+<header class="hero"><div class="wrap">
+  <h1 id="name"></h1>
+  <div class="dim"><span id="tagline"></span></div>
+  <p class="lead" id="intro"></p>
+  <a class="btn main" href="#project">See my project</a>
+  <a class="btn alt" id="paperBtn" href="#research">Read my research</a>
+</div></header>
+
+<main id="main">
+<section id="about"><div class="wrap two">
+  <div><h2 id="aboutTitle"></h2><div id="aboutText"></div></div>
+  <aside class="focus"><h3>Current focus</h3><ul class="tags" id="focus"></ul></aside>
+</div></section>
+
+<section id="project"><div class="wrap">
+  <h2>Featured project</h2>
+  <div class="proj">
+    <h3 id="pTitle" style="font-size:1.6rem"></h3>
+    <p id="pDesc"></p>
+    <div class="stats" id="pStats"></div>
+    <div id="pLinks"></div>
+    <div class="shots" id="pShots"></div>
+  </div>
+</div></section>
+
+<section id="research"><div class="wrap">
+  <h2>Research</h2>
+  <h3 id="rTitle" style="font-size:1.35rem"></h3>
+  <p class="sub" id="rMeta"></p>
+  <div id="rText" style="max-width:720px"></div>
+  <ol class="journey" id="journey"></ol>
+</div></section>
+
+<section id="experience"><div class="wrap">
+  <h2>Experience &amp; leadership</h2>
+  <div class="grid" id="exp"></div>
+</div></section>
+
+<section id="awards"><div class="wrap">
+  <h2>Awards &amp; recognition</h2>
+  <div id="honors"></div>
+  <details><summary>More honors</summary><ul id="more"></ul></details>
+</div></section>
+
+<section id="skills" class="skills"><div class="wrap">
+  <h2>Skills &amp; tools</h2>
+  <div id="skillList"></div>
+</div></section>
+
+<section id="contact" class="contact" style="border:0"><div class="wrap" style="max-width:640px">
+  <h2>Get in touch</h2>
+  <p class="sub" id="cText"></p>
+  <div id="cLinks"></div>
+</div></section>
+</main>
+<footer id="foot"></footer>
+
+<script>
+/* ============ EDIT ONLY THIS BLOCK ============ */
+const DATA = {
+  name: "Samyuktha Pammi",
+  initials: "YN",
+  tagline: "Your Field · Your Interest · Your Focus",
+  intro: "A high school student exploring engineering through research, software projects and real-world experience. Write one or two sentences about what you do.",
+  about: {
+    title: "Turning curiosity into things I can research, build and test.",
+    paragraphs: [
+      "Explain what first got you interested in your field.",
+      "Describe what you have done since: a project, a paper, a competition, a work placement.",
+      "Say what you hope to study next and why."
+    ],
+    focus: ["Your Subject", "Programming", "Data Analysis", "Problem Solving"]
+  },
+  project: {
+    title: "Your Project Name",
+    description: "Describe what you built, which tools you used, and what problem it solves, in two or three sentences.",
+    stats: [["10+","Features"],["3","Datasets"],["500","Users"]],
+    links: [["Launch live app","https://example.com"],["Source code","https://github.com/your-username/your-repo"]],
+    /* Put images in the same folder and use the file name, e.g. "screenshot1.png". Leave "" for a placeholder. */
+    shots: [["", "Input screen"],["", "Results screen"]]
+  },
+  research: {
+    title: "Title of Your Paper or Research Project",
+    meta: "Published 2026 · Journal or programme name",
+    paragraphs: [
+      "Summarise the question you asked and the method you used.",
+      "Mention your mentor or supervisor if you had one, and what you learned."
+    ],
+    link: "https://example.com/your-paper",
+    steps: ["Explored the topic and existing work.","Built and tested your approach.","Wrote up and shared the results.","Turned the ideas into a working project."]
+  },
+  experience: [
+    ["INTERNSHIP","Company or Organisation","Role · City · Dates","What you did and what you learned, in two or three sentences."],
+    ["RESEARCH","Programme Name","Length or dates","What you researched and what came out of it."],
+    ["LEADERSHIP","Student Council or Club","School name","Your role and what you organised."],
+    ["COMMUNITY","Volunteer Work","Organisation","Who you helped and how."]
+  ],
+  honors: [
+    ["2025","Competition Name","1st Place","Subject or level"],
+    ["2025","Another Competition","Silver Award","International"],
+    ["2024","Olympiad or Contest","Top 25 Worldwide","Round 3"]
+  ],
+  moreHonors: ["School Academic Award, 2025","Essay Competition, Honours List, 2024"],
+  skills: [
+    ["Programming & data", ["Python","Java","Pandas","HTML","CSS"]],
+    ["Tools & professional", ["Excel","GitHub","Technical Writing","Teamwork"]]
+  ],
+  contact: {
+    text: "Ask me about my projects, research or school work.",
+    links: [["Email","you@example.com","mailto:you@example.com"],
+            ["GitHub","@your-username","https://github.com/your-username"],
+            ["LinkedIn","Your Name","https://www.linkedin.com/in/your-profile"]]
+  }
+};
+/* ============ END OF EDIT BLOCK ============ */
+
+const $=id=>document.getElementById(id);
+const esc=s=>String(s).replace(/[&<>"]/g,c=>({"&":"&amp;","<":"&lt;",">":"&gt;",'"':"&quot;"}[c]));
+const d=DATA;
+document.title=d.name+" | Student Portfolio";
+$("initials").textContent=d.initials; $("name").textContent=d.name;
+$("tagline").textContent=d.tagline; $("intro").textContent=d.intro;
+$("paperBtn").href=d.research.link;
+$("aboutTitle").textContent=d.about.title;
+$("aboutText").innerHTML=d.about.paragraphs.map(p=>`<p>${esc(p)}</p>`).join("");
+$("focus").innerHTML=d.about.focus.map(t=>`<li>${esc(t)}</li>`).join("");
+const p=d.project;
+$("pTitle").textContent=p.title; $("pDesc").textContent=p.description;
+$("pStats").innerHTML=p.stats.map(s=>`<div><strong>${esc(s[0])}</strong>${esc(s[1])}</div>`).join("");
+$("pLinks").innerHTML=p.links.map((l,i)=>`<a class="btn ${i?"alt":"main"}" href="${esc(l[1])}" target="_blank" rel="noopener">${esc(l[0])}</a>`).join("");
+$("pShots").innerHTML=p.shots.map(s=>`<figure>${s[0]?`<img src="${esc(s[0])}" alt="${esc(s[1])}" loading="lazy">`:`<div class="ph">Add screenshot</div>`}<figcaption>${esc(s[1])}</figcaption></figure>`).join("");
+const r=d.research;
+$("rTitle").textContent=r.title; $("rMeta").textContent=r.meta;
+$("rText").innerHTML=r.paragraphs.map(t=>`<p>${esc(t)}</p>`).join("")+`<a class="btn main" href="${esc(r.link)}" target="_blank" rel="noopener">Read the paper</a>`;
+$("journey").innerHTML=r.steps.map(s=>`<li>${esc(s)}</li>`).join("");
+$("exp").innerHTML=d.experience.map(e=>`<article class="item"><small>${esc(e[0])}</small><h3>${esc(e[1])}</h3><p class="meta">${esc(e[2])}</p><p>${esc(e[3])}</p></article>`).join("");
+$("honors").innerHTML=d.honors.map(h=>`<div class="honor"><span class="yr">${esc(h[0])}</span><div><b>${esc(h[1])}</b><br>${esc(h[2])}, ${esc(h[3])}</div></div>`).join("");
+$("more").innerHTML=d.moreHonors.map(h=>`<li>${esc(h)}</li>`).join("");
+$("skillList").innerHTML=d.skills.map(s=>`<h3>${esc(s[0])}</h3><ul class="tags">${s[1].map(t=>`<li>${esc(t)}</li>`).join("")}</ul>`).join("");
+$("cText").textContent=d.contact.text;
+$("cLinks").innerHTML=d.contact.links.map(l=>`<a class="row" href="${esc(l[2])}"><b>${esc(l[0])}</b><span>${esc(l[1])}</span></a>`).join("");
+$("foot").textContent="© "+new Date().getFullYear()+" "+d.name;
+
+const root=document.documentElement;
+try{const t=localStorage.getItem("theme");if(t)root.dataset.theme=t}catch(e){}
+$("theme").onclick=()=>{
+  const dark=root.dataset.theme?root.dataset.theme==="dark":matchMedia("(prefers-color-scheme:dark)").matches;
+  root.dataset.theme=dark?"light":"dark";
+  try{localStorage.setItem("theme",root.dataset.theme)}catch(e){}
+};
+</script>
+</body>
+</html>
